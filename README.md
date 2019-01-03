@@ -19,7 +19,7 @@ The y-axis indicates the maximum reward seen so far, as is done in the paper.
 1. The requirements in the original [TF implementation](https://github.com/kchua/handful-of-trials)
 2. Pytorch 1.0.0
 
-For help with package installation, please take a look at the pip dependency file `requirements.txt` and conda dependency file `environments.yml`.
+For specific requirements, please take a look at the pip dependency file `requirements.txt` and conda dependency file `environments.yml`.
 
 ## Running Experiments
 
