@@ -6,6 +6,8 @@ The code is structured in the same level of abstraction as the original TF imple
 
 The repo only supports running experiment on the `cartpole` environment for now. To support running experiments on the other environments, we mostly need to: 1. Write a Pytorch implementation of the TF model architecture, 2. Implement environment-specific cost function calculation in Pytorch. I'd love to take pull request : ).
 
+The repo also has comparable run time to the TF implementation on the environment `cartpole` (~60s/iteration on a GeForce GTX 1080 Ti):
+
 ## Performance
 
 ![](graphs/cartpole.png)
