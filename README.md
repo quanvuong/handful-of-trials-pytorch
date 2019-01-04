@@ -42,6 +42,7 @@ Trial data will be contained in `logs.mat`, with the following contents:
 }
 ```
 
+To visualize the result, please take a look at `plotter.ipynb`
 
 ## Acknowledgement
 
