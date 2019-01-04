@@ -3,6 +3,7 @@ from __future__ import division
 from __future__ import print_function
 
 from DotmapUtils import get_required_argument
+from config.utils import swish, get_affine_params
 
 import gym
 import numpy as np
@@ -10,24 +11,7 @@ import torch
 from torch import nn as nn
 from torch.nn import functional as F
 
-import tensorflow as tf
-
 TORCH_DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-
-
-def swish(x):
-    return x * torch.sigmoid(x)
-
-
-def truncated_normal(size, std):
-    # We use TF to implement initialization function for neural network weight because:
-    # 1. Pytorch doesn't support truncated normal
-    # 2. This specific type of initialization is important for rapid progress early in training (in my experience)
-
-    # Do not allow tf to use gpu memory unnecessarily
-    sess = tf.Session(config=tf.ConfigProto(device_count={'GPU': 0}))
-    val = sess.run(tf.truncated_normal(shape=size, stddev=std))
-    return torch.tensor(val, dtype=torch.float32)
 
 
 class PtModel(nn.Module):
@@ -40,27 +24,13 @@ class PtModel(nn.Module):
         self.in_features = in_features
         self.out_features = out_features
 
-        lin0_w = truncated_normal(size=(ensemble_size, in_features, 500),
-                                  std=1.0 / (2.0 * np.sqrt(in_features)))
+        self.lin0_w, self.lin0_b = get_affine_params(ensemble_size, in_features, 500)
 
-        self.lin0_w = nn.Parameter(lin0_w)
-        self.lin0_b = nn.Parameter(torch.zeros(ensemble_size, 1, 500, dtype=torch.float32))
+        self.lin1_w, self.lin1_b = get_affine_params(ensemble_size, 500, 500)
 
-        lin1_w = truncated_normal(size=(ensemble_size, 500, 500), std=1.0 / (2.0 * np.sqrt(500)))
+        self.lin2_w, self.lin2_b = get_affine_params(ensemble_size, 500, 500)
 
-        self.lin1_w = nn.Parameter(lin1_w)
-        self.lin1_b = nn.Parameter(torch.zeros(ensemble_size, 1, 500, dtype=torch.float32))
-
-        lin2_w = truncated_normal(size=(ensemble_size, 500, 500), std=1.0 / (2.0 * np.sqrt(500)))
-
-        self.lin2_w = nn.Parameter(lin2_w)
-        self.lin2_b = nn.Parameter(torch.zeros(ensemble_size, 1, 500, dtype=torch.float32))
-
-        lin3_w = truncated_normal(size=(ensemble_size, 500, out_features),
-                                  std=1.0 / (2.0 * np.sqrt(500)))
-
-        self.lin3_w = nn.Parameter(lin3_w)
-        self.lin3_b = nn.Parameter(torch.zeros(ensemble_size, 1, out_features, dtype=torch.float32))
+        self.lin3_w, self.lin3_b = get_affine_params(ensemble_size, 500, out_features)
 
         self.inputs_mu = nn.Parameter(torch.zeros(in_features), requires_grad=False)
         self.inputs_sigma = nn.Parameter(torch.zeros(in_features), requires_grad=False)

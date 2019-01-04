@@ -9,6 +9,9 @@ def swish(x):
 
 
 def truncated_normal(size, std):
+    # We use TF to implement initialization function for neural network weight because:
+    # 1. Pytorch doesn't support truncated normal
+    # 2. This specific type of initialization is important for rapid progress early in training in cartpole
 
     # Do not allow tf to use gpu memory unnecessarily
     cfg = tf.ConfigProto()
