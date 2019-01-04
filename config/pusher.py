@@ -150,23 +150,9 @@ class PusherConfigModule:
 
         return to_w * tip_obj_dist + og_w * obj_goal_dist
 
-        # if isinstance(obs, np.ndarray):
-        #     tip_obj_dist = np.sum(np.abs(tip_pos - obj_pos), axis=1)
-        #     obj_goal_dist = np.sum(np.abs(goal_pos - obj_pos), axis=1)
-        #     return to_w * tip_obj_dist + og_w * obj_goal_dist
-        # else:
-        #     tip_obj_dist = tf.reduce_sum(tf.abs(tip_pos - obj_pos), axis=1)
-        #     obj_goal_dist = tf.reduce_sum(tf.abs(goal_pos - obj_pos), axis=1)
-        #     return to_w * tip_obj_dist + og_w * obj_goal_dist
-
     @staticmethod
     def ac_cost_fn(acs):
         return 0.1 * (acs ** 2).sum(dim=1)
-
-        # if isinstance(acs, np.ndarray):
-        #     return 0.1 * np.sum(np.square(acs), axis=1)
-        # else:
-        #     return 0.1 * tf.reduce_sum(tf.square(acs), axis=1)
 
     def nn_constructor(self, model_init_cfg):
         ensemble_size = get_required_argument(model_init_cfg, "num_nets", "Must provide ensemble size")
