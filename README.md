@@ -4,11 +4,9 @@ As for now, the repo only supports the most high-performing variant: probabilist
 
 The code is structured in the same level of abstraction as the original TF implementation, with the exception that the TF dynamics model is replaced by a Pytorch dynamics model.
 
-The repo only supports running experiment on the `cartpole` environment for now. To support running experiments on the other environments, we mostly need to: 1. Write a Pytorch implementation of the TF model architecture, 2. Implement environment-specific cost function calculation in Pytorch. I'd love to take pull request : ).
-
 ## Performance
 
-![](graphs/cartpole.png)
+![](graphs/cartpole.png) ![](graphs/pusher.png)
 
 The y-axis indicates the maximum reward seen so far, as is done in the paper.
 
