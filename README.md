@@ -8,6 +8,8 @@ The code is structured with the same levels of abstraction as the original TF im
 
 ![](graphs/cartpole.png) ![](graphs/pusher.png)
 
+![](graphs/reacher.png)
+
 The y-axis indicates the maximum reward seen so far, as is done in the paper.
 
 ## Requirements
