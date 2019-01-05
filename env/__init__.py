@@ -9,3 +9,8 @@ register(
     id='MBRLPusher-v0',
     entry_point='env.pusher:PusherEnv'
 )
+
+register(
+    id='MBRLReacher3D-v0',
+    entry_point='env.reacher:Reacher3DEnv'
+)

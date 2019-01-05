@@ -78,6 +78,8 @@ def _create_ctrl_config(ctrl_cfg, cfg_module, ctrl_type, ctrl_args, type_map):
     assert ctrl_type == 'MPC'
 
     ctrl_cfg.env = cfg_module.ENV
+    if hasattr(cfg_module, "UPDATE_FNS"):
+        ctrl_cfg.update_fns = cfg_module.UPDATE_FNS
     if hasattr(cfg_module, "obs_preproc"):
         ctrl_cfg.prop_cfg.obs_preproc = cfg_module.obs_preproc
     if hasattr(cfg_module, "obs_postproc"):

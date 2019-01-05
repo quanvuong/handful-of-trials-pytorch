@@ -116,6 +116,7 @@ class MPC(Controller):
         self.ac_ub, self.ac_lb = params.env.action_space.high, params.env.action_space.low
         self.ac_ub = np.minimum(self.ac_ub, params.get("ac_ub", self.ac_ub))
         self.ac_lb = np.maximum(self.ac_lb, params.get("ac_lb", self.ac_lb))
+        self.update_fns = params.get("update_fns", [])
         self.per = params.get("per", 1)
 
         self.model_init_cig = params.prop_cfg.get("model_init_cfg", {})
@@ -263,6 +264,9 @@ class MPC(Controller):
         """
         self.prev_sol = np.tile((self.ac_lb + self.ac_ub) / 2, [self.plan_hor])
         self.optimizer.reset()
+
+        for update_fn in self.update_fns:
+            update_fn()
 
     def act(self, obs, t, get_pred_cost=False):
         """Returns the action that this controller would take at time t given observation obs.
