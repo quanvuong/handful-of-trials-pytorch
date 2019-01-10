@@ -4,6 +4,8 @@ As of now, the repo only supports the most high-performing variant: probabilisti
 
 The code is structured with the same levels of abstraction as the original TF implementation, with the exception that the TF dynamics model is replaced by a Pytorch dynamics model.
 
+I'm happy to take pull request if you see ways to improve the repo :).
+
 ## Performance
 
 ![](graphs/cartpole.png) ![](graphs/pusher.png)
