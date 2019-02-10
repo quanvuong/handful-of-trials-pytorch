@@ -32,7 +32,7 @@ class PtModel(nn.Module):
 
         self.lin2_w, self.lin2_b = get_affine_params(ensemble_size, 200, 200)
 
-        self.lin2_w, self.lin2_b = get_affine_params(ensemble_size, 200, 200)
+        self.lin3_w, self.lin3_b = get_affine_params(ensemble_size, 200, 200)
 
         self.lin4_w, self.lin4_b = get_affine_params(ensemble_size, 200, out_features)
 
