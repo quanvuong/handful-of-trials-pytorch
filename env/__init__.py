@@ -14,3 +14,8 @@ register(
     id='MBRLReacher3D-v0',
     entry_point='env.reacher:Reacher3DEnv'
 )
+
+register(
+    id='MBRLHalfCheetah-v0',
+    entry_point='env.half_cheetah:HalfCheetahEnv'
+)
