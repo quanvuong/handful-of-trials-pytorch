@@ -351,7 +351,6 @@ class MPC(Controller):
         for t in range(self.plan_hor):
             cur_acs = ac_seqs[t]
 
-            # next_obs, mean, var = self._predict_next_obs_np(cur_obs, cur_acs)
             next_obs = self._predict_next_obs(cur_obs, cur_acs)
 
             cost = self.obs_cost_fn(next_obs) + self.ac_cost_fn(cur_acs)
