@@ -65,7 +65,7 @@ class CEMOptimizer(Optimizer):
             init_var (np.ndarray): The variance of the initial candidate distribution.
         """
         mean, var, t = init_mean, init_var, 0
-        X = stats.truncnorm(-2, 2, loc=np.zeros_like(mean), scale=np.ones_like(mean))
+        X = stats.truncnorm(-2, 2, loc=np.zeros_like(mean), scale=np.ones_like(var))
 
         while (t < self.max_iters) and np.max(var) > self.epsilon:
             lb_dist, ub_dist = mean - self.lb, self.ub - mean
