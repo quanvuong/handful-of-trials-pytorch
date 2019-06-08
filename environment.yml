@@ -3,35 +3,33 @@ channels:
   - pytorch
   - defaults
 dependencies:
-  - blas=1.0=mkl
-  - ca-certificates=2018.03.07=0
-  - certifi=2018.8.24=py35_1
-  - cffi=1.11.5=py35h6174b99_1
-  - intel-openmp=2019.1=144
-  - libcxx=4.0.1=hcfea43d_1
-  - libcxxabi=4.0.1=hcfea43d_1
-  - libedit=3.1.20170329=hb402a30_2
-  - libffi=3.2.1=h475c297_4
-  - libgfortran=3.0.1=h93005f0_2
-  - mkl=2018.0.3=1
-  - mkl_fft=1.0.6=py35hb8a8100_0
-  - mkl_random=1.0.1=py35h5d10147_1
-  - ncurses=6.1=h0a44026_1
-  - ninja=1.8.2=py35h04f5b5a_1
-  - numpy=1.15.2=py35h6a91979_0
-  - numpy-base=1.15.2=py35h8a80b8c_0
-  - openssl=1.0.2p=h1de35cc_0
-  - pip=10.0.1=py35_0
-  - pycparser=2.19=py35_0
-  - python=3.5.6=hc167b69_0
-  - readline=7.0=h1de35cc_5
-  - setuptools=40.2.0=py35_0
-  - sqlite=3.25.3=ha441bb4_0
-  - tk=8.6.8=ha441bb4_0
-  - wheel=0.31.1=py35_0
-  - xz=5.2.4=h1de35cc_4
-  - zlib=1.2.11=h1de35cc_3
-  - pytorch=1.0.0=py3.5_1
+  - blas=1.0
+  - ca-certificates=2018.03.07
+  - certifi=2018.8.24
+  - cffi=1.11.5
+  - intel-openmp=2019.1
+  - libcxx=4.0.1
+  - libcxxabi=4.0.1
+  - libedit=3.1.20170329
+  - libffi=3.2.1
+  - libgfortran=3.0.1
+  - mkl=2018.0.3
+  - mkl_fft=1.0.6
+  - mkl_random=1.0.1
+  - ncurses=6.1
+  - ninja=1.8.2
+  - numpy-base=1.15.2
+  - openssl=1.0.2p
+  - pycparser=2.19
+  - python=3.5.6
+  - pytorch=1.0.0
+  - readline=7.0
+  - setuptools=40.2.0
+  - sqlite=3.25.3
+  - tk=8.6.8
+  - wheel=0.31.1
+  - xz=5.2.4
+  - zlib=1.2.11
   - pip:
     - absl-py==0.6.1
     - appnope==0.1.0
@@ -65,11 +63,13 @@ dependencies:
     - more-itertools==4.3.0
     - mujoco-py==0.5.7
     - multipledispatch==0.6.0
+    - numpy==1.14.0
     - pandas==0.23.4
     - parso==0.3.1
     - pathlib2==2.3.3
     - pexpect==4.6.0
     - pickleshare==0.7.5
+    - pip==18.1
     - pluggy==0.8.0
     - prompt-toolkit==2.0.7
     - protobuf==3.6.1
@@ -89,7 +89,6 @@ dependencies:
     - tensorboard==1.12.1
     - tensorflow==1.12.0
     - termcolor==1.1.0
-    - torch==1.0.0
     - tqdm==4.19.4
     - traitlets==4.3.2
     - urllib3==1.24.1
