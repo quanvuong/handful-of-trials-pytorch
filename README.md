@@ -14,6 +14,18 @@ I'm happy to take pull request if you see ways to improve the repo :).
 
 The y-axis indicates the maximum reward seen so far, as is done in the paper.
 
+On the seed I have specified in the code, I could not get the same result as the paper on HalfCheetah. I had combed through the code but couldn’t find any potential bugs. 
+
+I suspect the lower performance is because HC has deceptive modes in the objective function surface, and therefore high variance in performance. 
+
+To get to 15k episode return, the HC needs to run on its legs. However, another mode is for the HC to flip on its back and wiggle its legs. 
+
+Even SAC is stuck in this mode for some initial seeds. 
+
+https://github.com/rail-berkeley/softlearning/issues/75
+
+I didn’t have time to pursue this issue further. If you encounter this issue, try to render the behavior of the HC, I think that will be very helpful in figuring out the issue.
+
 ## Requirements
 
 1. The requirements in the original [TF implementation](https://github.com/kchua/handful-of-trials)
