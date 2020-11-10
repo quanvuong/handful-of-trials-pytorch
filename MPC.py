@@ -247,8 +247,8 @@ class MPC(Controller):
 
             idxs = shuffle_rows(idxs)
 
-            val_in = torch.from_numpy(self.train_in[idxs[:5000]]).to(TORCH_DEVICE).float()
-            val_targ = torch.from_numpy(self.train_targs[idxs[:5000]]).to(TORCH_DEVICE).float()
+            val_in = torch.from_numpy(self.train_in[idxs[:,:5000]]).to(TORCH_DEVICE).float()
+            val_targ = torch.from_numpy(self.train_targs[idxs[:,:5000]]).to(TORCH_DEVICE).float()
 
             mean, _ = self.model(val_in)
             mse_losses = ((mean - val_targ) ** 2).mean(-1).mean(-1)
