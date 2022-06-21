@@ -34,7 +34,7 @@ mkl-random==1.0.1
 more-itertools==4.3.0
 mujoco-py==0.5.7
 multipledispatch==0.6.0
-numpy==1.15.2
+numpy==1.22.0
 pandas==0.23.4
 parso==0.3.1
 pathlib2==2.3.3
